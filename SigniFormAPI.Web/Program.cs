@@ -1,4 +1,11 @@
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using SigniFormAPI.DataAccess.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefoultConnection")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
