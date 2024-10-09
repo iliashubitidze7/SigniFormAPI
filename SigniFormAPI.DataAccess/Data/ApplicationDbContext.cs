@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SigniFormAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,7 @@ namespace SigniFormAPI.DataAccess.Data
         {
             
         }
+
+        public DbSet<ContractSummaryForm> ContractSummaries { get; set; }
     }
 }
