@@ -1,14 +1,20 @@
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Reader.DataAccess.Repository;
 using SigniFormAPI.DataAccess.Data;
+using SigniFormAPI.DataAccess.Repository;
+using SigniFormAPI.DataAccess.Repository.IRepository;
+using SigniFormAPI.Utility;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefoultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<SignifyApiServices>();
+builder.Services.AddScoped<SD>();
 
 var app = builder.Build();
 

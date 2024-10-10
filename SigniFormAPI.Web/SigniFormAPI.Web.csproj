@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SigniFormAPI.DataAccess\SigniFormAPI.DataAccess.csproj" />
+    <ProjectReference Include="..\SigniFormAPI.Models\SigniFormAPI.Models.csproj" />
   </ItemGroup>
 
 </Project>
